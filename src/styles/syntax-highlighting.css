@@ -1,0 +1,153 @@
+/* Override all MDEditor token styles with maximum specificity */
+
+/* Light mode syntax highlighting */
+body:not(.dark) .wmde-markdown .token.comment,
+body:not(.dark) .wmde-markdown .token.prolog,
+body:not(.dark) .wmde-markdown .token.doctype,
+body:not(.dark) .wmde-markdown .token.cdata {
+  color: #6a737d !important;
+}
+
+body:not(.dark) .wmde-markdown .token.punctuation {
+  color: #24292e !important;
+}
+
+body:not(.dark) .wmde-markdown .token.property,
+body:not(.dark) .wmde-markdown .token.tag,
+body:not(.dark) .wmde-markdown .token.constant,
+body:not(.dark) .wmde-markdown .token.symbol,
+body:not(.dark) .wmde-markdown .token.deleted,
+body:not(.dark) .wmde-markdown .token.property-access,
+body:not(.dark) .wmde-markdown .token.console,
+body:not(.dark) .wmde-markdown .token.class-name {
+  color: #e36209 !important;
+}
+
+body:not(.dark) .wmde-markdown .token.boolean,
+body:not(.dark) .wmde-markdown .token.number {
+  color: #005cc5 !important;
+}
+
+body:not(.dark) .wmde-markdown .token.selector,
+body:not(.dark) .wmde-markdown .token.attr-name,
+body:not(.dark) .wmde-markdown .token.string,
+body:not(.dark) .wmde-markdown .token.char,
+body:not(.dark) .wmde-markdown .token.builtin,
+body:not(.dark) .wmde-markdown .token.inserted {
+  color: #0969da !important; /* Brighter blue for better contrast */
+}
+
+body:not(.dark) .wmde-markdown .token.operator,
+body:not(.dark) .wmde-markdown .token.entity,
+body:not(.dark) .wmde-markdown .token.url,
+body:not(.dark) .wmde-markdown .token.variable {
+  color: #e36209 !important;
+}
+
+body:not(.dark) .wmde-markdown .token.atrule,
+body:not(.dark) .wmde-markdown .token.attr-value,
+body:not(.dark) .wmde-markdown .token.function,
+body:not(.dark) .wmde-markdown .token.method {
+  color: #6f42c1 !important;
+}
+
+body:not(.dark) .wmde-markdown .token.keyword {
+  color: #d73a49 !important;
+}
+
+body:not(.dark) .wmde-markdown .token.regex,
+body:not(.dark) .wmde-markdown .token.important {
+  color: #d73a49 !important;
+}
+
+/* Dark mode syntax highlighting */
+body.dark .wmde-markdown .token.comment,
+body.dark .wmde-markdown .token.prolog,
+body.dark .wmde-markdown .token.doctype,
+body.dark .wmde-markdown .token.cdata,
+.wmde-markdown[data-color-mode="dark"] .token.comment,
+.wmde-markdown[data-color-mode="dark"] .token.prolog,
+.wmde-markdown[data-color-mode="dark"] .token.doctype,
+.wmde-markdown[data-color-mode="dark"] .token.cdata {
+  color: #8b949e !important;
+}
+
+body.dark .wmde-markdown .token.punctuation,
+.wmde-markdown[data-color-mode="dark"] .token.punctuation {
+  color: #ffffff !important; /* White for testing */
+}
+
+body.dark .wmde-markdown .token.property,
+body.dark .wmde-markdown .token.tag,
+body.dark .wmde-markdown .token.constant,
+body.dark .wmde-markdown .token.symbol,
+body.dark .wmde-markdown .token.deleted,
+body.dark .wmde-markdown .token.property-access,
+body.dark .wmde-markdown .token.console,
+body.dark .wmde-markdown .token.class-name,
+.wmde-markdown[data-color-mode="dark"] .token.property,
+.wmde-markdown[data-color-mode="dark"] .token.tag,
+.wmde-markdown[data-color-mode="dark"] .token.constant,
+.wmde-markdown[data-color-mode="dark"] .token.symbol,
+.wmde-markdown[data-color-mode="dark"] .token.deleted,
+.wmde-markdown[data-color-mode="dark"] .token.property-access,
+.wmde-markdown[data-color-mode="dark"] .token.console,
+.wmde-markdown[data-color-mode="dark"] .token.class-name {
+  color: #ffa657 !important;
+}
+
+body.dark .wmde-markdown .token.boolean,
+body.dark .wmde-markdown .token.number,
+.wmde-markdown[data-color-mode="dark"] .token.boolean,
+.wmde-markdown[data-color-mode="dark"] .token.number {
+  color: #79c0ff !important;
+}
+
+body.dark .wmde-markdown .token.selector,
+body.dark .wmde-markdown .token.attr-name,
+body.dark .wmde-markdown .token.string,
+body.dark .wmde-markdown .token.char,
+body.dark .wmde-markdown .token.builtin,
+body.dark .wmde-markdown .token.inserted,
+.wmde-markdown[data-color-mode="dark"] .token.selector,
+.wmde-markdown[data-color-mode="dark"] .token.attr-name,
+.wmde-markdown[data-color-mode="dark"] .token.string,
+.wmde-markdown[data-color-mode="dark"] .token.char,
+.wmde-markdown[data-color-mode="dark"] .token.builtin,
+.wmde-markdown[data-color-mode="dark"] .token.inserted {
+  color: #79c0ff !important; /* Brighter light blue for better readability */
+}
+
+body.dark .wmde-markdown .token.operator,
+body.dark .wmde-markdown .token.entity,
+body.dark .wmde-markdown .token.url,
+body.dark .wmde-markdown .token.variable,
+.wmde-markdown[data-color-mode="dark"] .token.operator,
+.wmde-markdown[data-color-mode="dark"] .token.entity,
+.wmde-markdown[data-color-mode="dark"] .token.url,
+.wmde-markdown[data-color-mode="dark"] .token.variable {
+  color: #ffa657 !important;
+}
+
+body.dark .wmde-markdown .token.atrule,
+body.dark .wmde-markdown .token.attr-value,
+body.dark .wmde-markdown .token.function,
+body.dark .wmde-markdown .token.method,
+.wmde-markdown[data-color-mode="dark"] .token.atrule,
+.wmde-markdown[data-color-mode="dark"] .token.attr-value,
+.wmde-markdown[data-color-mode="dark"] .token.function,
+.wmde-markdown[data-color-mode="dark"] .token.method {
+  color: #d2a8ff !important;
+}
+
+body.dark .wmde-markdown .token.keyword,
+.wmde-markdown[data-color-mode="dark"] .token.keyword {
+  color: #ff7b72 !important;
+}
+
+body.dark .wmde-markdown .token.regex,
+body.dark .wmde-markdown .token.important,
+.wmde-markdown[data-color-mode="dark"] .token.regex,
+.wmde-markdown[data-color-mode="dark"] .token.important {
+  color: #ff7b72 !important;
+}

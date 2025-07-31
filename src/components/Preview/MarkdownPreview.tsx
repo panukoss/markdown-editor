@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import MDEditor from '@uiw/react-md-editor';
 import { useEditorStore } from '../../stores/editorStore';
+import { useThemeStore } from '../../stores/themeStore';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import { rehypeHighlightCustom } from '../../lib/rehypeHighlightCustom';
+import 'katex/dist/katex.css';
+import '../../styles/syntax-highlighting.css';
 
-export const MarkdownPreview: React.FC = () => {
+
+interface MarkdownPreviewProps {
+  scrollRef?: React.RefObject<HTMLDivElement>;
+}
+
+export const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({ scrollRef }) => {
   const { content } = useEditorStore();
+  const { isDarkMode } = useThemeStore();
+  
+  useEffect(() => {
+    // Force update wmde-markdown to use correct color mode
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('.wmde-markdown');
+      elements.forEach(el => {
+        el.setAttribute('data-color-mode', isDarkMode ? 'dark' : 'light');
+      });
+    }, 0);
+    
+    return () => clearTimeout(timer);
+  }, [isDarkMode, content]);
 
   return (
     <div className="h-full flex flex-col bg-gray-50 dark:bg-gray-900">
@@ -11,9 +37,28 @@ export const MarkdownPreview: React.FC = () => {
           Preview
         </h2>
       </div>
-      <div className="flex-1 p-4 overflow-auto text-gray-900 dark:text-gray-100">
-        <div className="prose prose-sm max-w-none dark:prose-invert">
-          {content || <p className="text-gray-500 italic">Start typing to see preview...</p>}
+      <div ref={scrollRef} className="flex-1 overflow-auto p-6 scroll-smooth">
+        <div className="prose prose-sm max-w-none markdown-body">
+          <MDEditor.Markdown
+            source={content || '*Start typing to see preview...*'}
+            remarkPlugins={[remarkGfm, remarkMath]}
+            rehypePlugins={[rehypeHighlightCustom, rehypeKatex]}
+            components={{
+              code: ({ className, children, ...props }) => {
+                const match = /language-(\w+)/.exec(className || '');
+                
+                return match ? (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                ) : (
+                  <code className="inline-code" {...props}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          />
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@
 
 /* Configure theme variables */
 @theme {
+  --color-white: #ffffff;
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
@@ -15,6 +16,7 @@
   --color-gray-700: #374151;
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
+  --color-gray-950: #0a0a0a;
 }
 
 html, body, #root {
@@ -29,4 +31,542 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prose styling for markdown preview */
+.prose {
+  color: var(--color-gray-900);
+  max-width: none;
+}
+
+.dark .prose {
+  color: var(--color-gray-100);
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: var(--color-gray-900);
+}
+
+.dark .prose h1, .dark .prose h2, .dark .prose h3, 
+.dark .prose h4, .dark .prose h5, .dark .prose h6 {
+  color: var(--color-gray-100);
+}
+
+.prose h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.dark .prose.dark\:prose-invert a {
+  color: #60a5fa;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose code {
+  font-size: 0.875em;
+}
+
+.prose pre {
+  font-size: 0.875em;
+  line-height: 1.7142857;
+  margin-top: 1.7142857em;
+  margin-bottom: 1.7142857em;
+  border-radius: 0.375rem;
+  padding: 0.8571429em 1.1428571em;
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-900);
+  border: 1px solid var(--color-gray-200);
+  overflow-x: auto;
+}
+
+.dark .prose pre {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-700);
+}
+
+.prose code {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-900);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.dark .prose code {
+  background-color: var(--color-gray-800);
+  color: var(--color-gray-100);
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.prose ul {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+  list-style-type: disc;
+}
+
+.prose ol {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose blockquote {
+  font-style: italic;
+  border-left-width: 0.25rem;
+  border-left-color: var(--color-gray-300);
+  quotes: "\\201C""\\201D""\\2018""\\2019";
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  padding-left: 1em;
+}
+
+.dark .prose blockquote {
+  border-left-color: var(--color-gray-600);
+  color: var(--color-gray-300);
+}
+
+/* Ensure all text elements are properly colored in dark mode */
+.dark .prose p,
+.dark .prose li,
+.dark .prose strong,
+.dark .prose em,
+.dark .prose blockquote {
+  color: var(--color-gray-100);
+}
+
+/* Fix inline code color */
+.prose code.inline-code {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-900);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.dark .prose code.inline-code {
+  background-color: var(--color-gray-800);
+  color: var(--color-gray-100);
+}
+
+/* Override MDEditor preview styles */
+.markdown-body {
+  background-color: transparent !important;
+  color: var(--color-gray-900) !important;
+}
+
+.dark .markdown-body {
+  color: var(--color-gray-100) !important;
+}
+
+/* Force all markdown-body text elements to use correct colors */
+.dark .markdown-body p,
+.dark .markdown-body li,
+.dark .markdown-body strong,
+.dark .markdown-body em {
+  color: var(--color-gray-100) !important;
+}
+
+/* Don't override span colors as they might be syntax highlighting */
+.dark .markdown-body span:not([class*="hljs"]) {
+  color: var(--color-gray-100) !important;
+}
+
+.markdown-body pre {
+  background-color: var(--color-gray-100) !important;
+  color: var(--color-gray-900) !important;
+  border: 1px solid var(--color-gray-200) !important;
+  border-radius: 0.375rem !important;
+  padding: 1rem !important;
+}
+
+.dark .markdown-body pre {
+  background-color: var(--color-gray-900) !important;
+  color: var(--color-gray-100) !important;
+  border: 1px solid var(--color-gray-700) !important;
+}
+
+/* Fix for highlight.js code blocks */
+.markdown-body pre code.hljs {
+  background-color: transparent !important;
+}
+
+.markdown-body .hljs {
+  background-color: var(--color-gray-100) !important;
+}
+
+.dark .markdown-body .hljs {
+  background-color: var(--color-gray-900) !important;
+}
+
+/* Preserve syntax highlighting colors */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  color: inherit;
+}
+
+/* Define syntax highlighting colors as CSS variables */
+:root {
+  --hljs-keyword-color: #d73a49;
+  --hljs-string-color: #032f62;
+  --hljs-title-color: #6f42c1;
+  --hljs-comment-color: #6a737d;
+  --hljs-number-color: #005cc5;
+  --hljs-property-color: #e36209;
+  --hljs-built_in-color: #005cc5;
+  --hljs-literal-color: #005cc5;
+  --hljs-variable-color: #e36209;
+  --hljs-attr-color: #e36209;
+  --hljs-selector-tag-color: #d73a49;
+  --hljs-section-color: #d73a49;
+  --hljs-link-color: #d73a49;
+  --hljs-meta-color: #005cc5;
+  --hljs-type-color: #005cc5;
+  --hljs-function-color: #6f42c1;
+  --hljs-class-color: #6f42c1;
+  --hljs-regexp-color: #032f62;
+  --hljs-template-tag-color: #032f62;
+  --hljs-template-variable-color: #032f62;
+  --hljs-quote-color: #6a737d;
+  --hljs-attribute-color: #e36209;
+  --hljs-builtin-name-color: #005cc5;
+}
+
+.dark {
+  --hljs-keyword-color: #ff7b72;
+  --hljs-string-color: #a5d6ff;
+  --hljs-title-color: #d2a8ff;
+  --hljs-comment-color: #8b949e;
+  --hljs-number-color: #79c0ff;
+  --hljs-property-color: #ffa657;
+  --hljs-built_in-color: #79c0ff;
+  --hljs-literal-color: #79c0ff;
+  --hljs-variable-color: #ffa657;
+  --hljs-attr-color: #ffa657;
+  --hljs-selector-tag-color: #ff7b72;
+  --hljs-section-color: #ff7b72;
+  --hljs-link-color: #ff7b72;
+  --hljs-meta-color: #79c0ff;
+  --hljs-type-color: #79c0ff;
+  --hljs-function-color: #d2a8ff;
+  --hljs-class-color: #d2a8ff;
+  --hljs-regexp-color: #a5d6ff;
+  --hljs-template-tag-color: #a5d6ff;
+  --hljs-template-variable-color: #a5d6ff;
+  --hljs-quote-color: #8b949e;
+  --hljs-attribute-color: #ffa657;
+  --hljs-builtin-name-color: #79c0ff;
+}
+
+/* Override highlight.js theme completely */
+.hljs {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* Apply syntax colors to MDEditor's token classes */
+.token.keyword { color: var(--hljs-keyword-color) !important; }
+.token.string { color: var(--hljs-string-color) !important; }
+.token.function { color: var(--hljs-title-color) !important; }
+.token.comment { color: var(--hljs-comment-color) !important; }
+.token.number { color: var(--hljs-number-color) !important; }
+.token.property { color: var(--hljs-property-color) !important; }
+.token.property-access { color: var(--hljs-property-color) !important; }
+.token.console { color: var(--hljs-property-color) !important; }
+.token.class-name { color: var(--hljs-property-color) !important; }
+.token.builtin { color: var(--hljs-built_in-color) !important; }
+.token.literal { color: var(--hljs-literal-color) !important; }
+.token.variable { color: var(--hljs-variable-color) !important; }
+.token.operator { color: var(--hljs-keyword-color) !important; }
+.token.punctuation { color: var(--color-gray-700) !important; }
+.dark .token.punctuation { color: #9CA3AF !important; }
+.token.method { color: var(--hljs-title-color) !important; }
+.token.boolean { color: var(--hljs-literal-color) !important; }
+
+/* Support both token and hljs classes */
+.hljs-keyword { color: var(--hljs-keyword-color) !important; }
+.hljs-string { color: var(--hljs-string-color) !important; }
+.hljs-title { color: var(--hljs-title-color) !important; }
+.hljs-comment { color: var(--hljs-comment-color) !important; }
+.hljs-number { color: var(--hljs-number-color) !important; }
+.hljs-property { color: var(--hljs-property-color) !important; }
+.hljs-built_in { color: var(--hljs-built_in-color) !important; }
+.hljs-literal { color: var(--hljs-literal-color) !important; }
+.hljs-variable { color: var(--hljs-variable-color) !important; }
+.hljs-attr { color: var(--hljs-attr-color) !important; }
+.hljs-function { color: var(--hljs-function-color) !important; }
+.hljs-meta .hljs-string { color: var(--hljs-string-color) !important; }
+.hljs-function .hljs-title { color: var(--hljs-title-color) !important; }
+.hljs-class .hljs-title { color: var(--hljs-title-color) !important; }
+
+/* Force dark mode colors for token classes - use very specific selectors */
+.wmde-markdown[data-color-mode="dark"] .token.keyword,
+.dark .wmde-markdown .token.keyword,
+.dark [data-color-mode="dark"] .token.keyword { color: #ff7b72 !important; }
+
+/* Force punctuation to be medium gray in dark mode with maximum specificity */
+body.dark .wmde-markdown .token.punctuation,
+body.dark .wmde-markdown[data-color-mode="dark"] .token.punctuation,
+body.dark [data-color-mode="dark"] .token.punctuation,
+.dark .wmde-markdown[data-color-mode="dark"] .token.punctuation,
+.dark .markdown-body .wmde-markdown .token.punctuation {
+  color: #9CA3AF !important; /* Medium gray - another step darker */
+}
+
+.wmde-markdown[data-color-mode="dark"] .token.string,
+.dark .wmde-markdown .token.string,
+.dark [data-color-mode="dark"] .token.string { color: #a5d6ff !important; }
+
+.wmde-markdown[data-color-mode="dark"] .token.function,
+.dark .wmde-markdown .token.function,
+.dark [data-color-mode="dark"] .token.function,
+.wmde-markdown[data-color-mode="dark"] .token.method,
+.dark .wmde-markdown .token.method,
+.dark [data-color-mode="dark"] .token.method { color: #d2a8ff !important; }
+
+.wmde-markdown[data-color-mode="dark"] .token.comment,
+.dark .wmde-markdown .token.comment,
+.dark [data-color-mode="dark"] .token.comment { color: #8b949e !important; }
+
+.wmde-markdown[data-color-mode="dark"] .token.number,
+.dark .wmde-markdown .token.number,
+.dark [data-color-mode="dark"] .token.number { color: #79c0ff !important; }
+
+.wmde-markdown[data-color-mode="dark"] .token.property,
+.dark .wmde-markdown .token.property,
+.dark [data-color-mode="dark"] .token.property,
+.wmde-markdown[data-color-mode="dark"] .token.property-access,
+.dark .wmde-markdown .token.property-access,
+.dark [data-color-mode="dark"] .token.property-access,
+.wmde-markdown[data-color-mode="dark"] .token.console,
+.dark .wmde-markdown .token.console,
+.dark [data-color-mode="dark"] .token.console,
+.wmde-markdown[data-color-mode="dark"] .token.class-name,
+.dark .wmde-markdown .token.class-name,
+.dark [data-color-mode="dark"] .token.class-name { color: #ffa657 !important; }
+
+.wmde-markdown[data-color-mode="dark"] .token.builtin,
+.dark .wmde-markdown .token.builtin,
+.dark [data-color-mode="dark"] .token.builtin { color: #79c0ff !important; }
+
+.wmde-markdown[data-color-mode="dark"] .token.literal,
+.dark .wmde-markdown .token.literal,
+.dark [data-color-mode="dark"] .token.literal,
+.wmde-markdown[data-color-mode="dark"] .token.boolean,
+.dark .wmde-markdown .token.boolean,
+.dark [data-color-mode="dark"] .token.boolean { color: #79c0ff !important; }
+
+.wmde-markdown[data-color-mode="dark"] .token.variable,
+.dark .wmde-markdown .token.variable,
+.dark [data-color-mode="dark"] .token.variable { color: #ffa657 !important; }
+
+.wmde-markdown[data-color-mode="dark"] .token.operator,
+.dark .wmde-markdown .token.operator,
+.dark [data-color-mode="dark"] .token.operator { color: #ff7b72 !important; }
+
+.wmde-markdown[data-color-mode="dark"] .token.punctuation,
+.dark .wmde-markdown .token.punctuation,
+.dark [data-color-mode="dark"] .token.punctuation { color: inherit !important; }
+
+/* Force dark mode colors for hljs classes (if they get used) */
+[data-color-mode="dark"] .hljs-keyword,
+.dark .hljs-keyword { color: #ff7b72 !important; }
+
+[data-color-mode="dark"] .hljs-string,
+.dark .hljs-string { color: #a5d6ff !important; }
+
+[data-color-mode="dark"] .hljs-title,
+.dark .hljs-title,
+[data-color-mode="dark"] .hljs-function,
+.dark .hljs-function { color: #d2a8ff !important; }
+
+[data-color-mode="dark"] .hljs-comment,
+.dark .hljs-comment { color: #8b949e !important; }
+
+[data-color-mode="dark"] .hljs-number,
+.dark .hljs-number { color: #79c0ff !important; }
+
+[data-color-mode="dark"] .hljs-property,
+.dark .hljs-property { color: #ffa657 !important; }
+
+[data-color-mode="dark"] .hljs-built_in,
+.dark .hljs-built_in { color: #79c0ff !important; }
+
+[data-color-mode="dark"] .hljs-literal,
+.dark .hljs-literal { color: #79c0ff !important; }
+
+[data-color-mode="dark"] .hljs-variable,
+.dark .hljs-variable { color: #ffa657 !important; }
+
+/* Override any inline styles from MDEditor */
+.wmde-markdown {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+.wmde-markdown-color {
+  background-color: transparent !important;
+}
+
+/* Override MDEditor's default token colors that come from their CSS */
+.wmde-markdown .token.comment,
+.wmde-markdown .token.prolog,
+.wmde-markdown .token.doctype,
+.wmde-markdown .token.cdata {
+  color: var(--hljs-comment-color) !important;
+}
+
+.wmde-markdown .token.property,
+.wmde-markdown .token.tag,
+.wmde-markdown .token.constant,
+.wmde-markdown .token.symbol,
+.wmde-markdown .token.deleted {
+  color: var(--hljs-property-color) !important;
+}
+
+.wmde-markdown .token.boolean,
+.wmde-markdown .token.number {
+  color: var(--hljs-number-color) !important;
+}
+
+.wmde-markdown .token.selector,
+.wmde-markdown .token.attr-name,
+.wmde-markdown .token.string,
+.wmde-markdown .token.char,
+.wmde-markdown .token.builtin,
+.wmde-markdown .token.inserted {
+  color: var(--hljs-string-color) !important;
+}
+
+.wmde-markdown .token.operator,
+.wmde-markdown .token.entity,
+.wmde-markdown .token.url,
+.wmde-markdown .language-css .token.string,
+.wmde-markdown .style .token.string,
+.wmde-markdown .token.variable {
+  color: var(--hljs-variable-color) !important;
+}
+
+.wmde-markdown .token.atrule,
+.wmde-markdown .token.attr-value,
+.wmde-markdown .token.function {
+  color: var(--hljs-function-color) !important;
+}
+
+.wmde-markdown .token.keyword {
+  color: var(--hljs-keyword-color) !important;
+}
+
+.wmde-markdown .token.regex,
+.wmde-markdown .token.important {
+  color: var(--hljs-keyword-color) !important;
+}
+
+/* Table styling for light/dark mode */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose th {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-900);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.5rem;
+  border: 1px solid var(--color-gray-300);
+}
+
+.dark .prose th {
+  background-color: var(--color-gray-800);
+  color: var(--color-gray-100);
+  border-color: var(--color-gray-600);
+}
+
+.prose td {
+  background-color: var(--color-white);
+  color: var(--color-gray-900);
+  padding: 0.5rem;
+  border: 1px solid var(--color-gray-300);
+}
+
+.dark .prose td {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-100);
+  border-color: var(--color-gray-600);
+}
+
+/* Override MDEditor table styles */
+.markdown-body table {
+  background-color: transparent !important;
+}
+
+.markdown-body th {
+  background-color: var(--color-gray-100) !important;
+  color: var(--color-gray-900) !important;
+}
+
+.dark .markdown-body th {
+  background-color: var(--color-gray-800) !important;
+  color: var(--color-gray-100) !important;
+}
+
+.markdown-body td {
+  background-color: var(--color-white) !important;
+  color: var(--color-gray-900) !important;
+}
+
+.dark .markdown-body td {
+  background-color: var(--color-gray-900) !important;
+  color: var(--color-gray-100) !important;
 }
