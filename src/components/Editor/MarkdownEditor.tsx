@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useEditorStore } from '../../stores/editorStore';
-import { useThemeStore } from '../../stores/themeStore';
+// import { useThemeStore } from '../../stores/themeStore';
 import { EditorToolbar } from './EditorToolbar';
 
 interface MarkdownEditorProps {
@@ -9,7 +9,7 @@ interface MarkdownEditorProps {
 
 export const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ scrollRef }) => {
   const { content, setContent, setLastSaved, isAutoSaveEnabled } = useEditorStore();
-  const { isDarkMode } = useThemeStore();
+  // const { isDarkMode } = useThemeStore();
   const autoSaveTimeoutRef = useRef<NodeJS.Timeout>();
   const textareaRef = scrollRef || useRef<HTMLTextAreaElement>(null);
 

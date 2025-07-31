@@ -1,9 +1,11 @@
 import React from 'react';
 import { Moon, Sun, Save, Download, Copy, HelpCircle } from 'lucide-react';
 import { useThemeStore } from '../../stores/themeStore';
+import { useModalStore } from '../../stores/modalStore';
 
 export const Header: React.FC = () => {
   const { isDarkMode, toggleDarkMode } = useThemeStore();
+  const { openHelp, openExport } = useModalStore();
 
   return (
     <header className="border-b bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
@@ -25,6 +27,7 @@ export const Header: React.FC = () => {
           <button
             className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-300"
             title="Export"
+            onClick={openExport}
           >
             <Download size={20} />
           </button>
@@ -39,6 +42,7 @@ export const Header: React.FC = () => {
           <button
             className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-300"
             title="Help"
+            onClick={openHelp}
           >
             <HelpCircle size={20} />
           </button>
