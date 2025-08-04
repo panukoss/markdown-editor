@@ -1,18 +1,28 @@
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { marked } from 'marked';
+import { marked, Renderer } from 'marked';
 import hljs from 'highlight.js';
 
-// Configure marked to use highlight.js
-marked.setOptions({
-  highlight: function(code, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return hljs.highlight(code, { language: lang }).value;
-      } catch (err) {}
+// Configure marked with custom renderer
+const renderer = new Renderer();
+
+// Override code block rendering to add syntax highlighting
+renderer.code = ({ text, lang }) => {
+  let highlighted: string;
+  if (lang && hljs.getLanguage(lang)) {
+    try {
+      highlighted = hljs.highlight(text, { language: lang }).value;
+    } catch (err) {
+      highlighted = hljs.highlightAuto(text).value;
     }
-    return hljs.highlightAuto(code).value;
+  } else {
+    highlighted = hljs.highlightAuto(text).value;
   }
+  return `<pre><code class="hljs ${lang || ''}">${highlighted}</code></pre>`;
+};
+
+marked.setOptions({
+  renderer: renderer
 });
 
 export const exportToPDF = async (content: string, fileName: string) => {

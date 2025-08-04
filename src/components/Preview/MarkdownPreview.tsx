@@ -10,10 +10,31 @@ import 'katex/dist/katex.css';
 import '../../styles/syntax-highlighting.css';
 
 
+/**
+ * Props for the MarkdownPreview component
+ */
 interface MarkdownPreviewProps {
+  /** Optional ref for scroll synchronization */
   scrollRef?: React.RefObject<HTMLDivElement>;
 }
 
+/**
+ * Renders markdown content with live preview
+ * 
+ * Features:
+ * - GitHub Flavored Markdown (GFM) support
+ * - Syntax highlighting for code blocks
+ * - LaTeX math rendering with KaTeX
+ * - Dark mode support
+ * - Synchronized scrolling capability
+ * 
+ * @component
+ * @example
+ * ```tsx
+ * const previewRef = useRef<HTMLDivElement>(null)
+ * <MarkdownPreview scrollRef={previewRef} />
+ * ```
+ */
 export const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({ scrollRef }) => {
   const { content } = useEditorStore();
   const { isDarkMode } = useThemeStore();

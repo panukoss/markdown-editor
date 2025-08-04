@@ -3,10 +3,30 @@ import { useEditorStore } from '../../stores/editorStore';
 // import { useThemeStore } from '../../stores/themeStore';
 import { EditorToolbar } from './EditorToolbar';
 
+/**
+ * Props for the MarkdownEditor component
+ */
 interface MarkdownEditorProps {
+  /** Optional ref for scroll synchronization */
   scrollRef?: React.RefObject<HTMLTextAreaElement>;
 }
 
+/**
+ * Main editor component for markdown input
+ * 
+ * Features:
+ * - Auto-save functionality with 2-second debounce
+ * - Keyboard shortcuts for formatting (Bold: Ctrl+B, Italic: Ctrl+I, Link: Ctrl+L)
+ * - Dark mode support
+ * - Synchronized scrolling capability
+ * 
+ * @component
+ * @example
+ * ```tsx
+ * const editorRef = useRef<HTMLTextAreaElement>(null)
+ * <MarkdownEditor scrollRef={editorRef} />
+ * ```
+ */
 export const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ scrollRef }) => {
   const { content, setContent, setLastSaved, isAutoSaveEnabled } = useEditorStore();
   // const { isDarkMode } = useThemeStore();
@@ -31,7 +51,10 @@ export const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ scrollRef }) => 
     };
   }, [content, isAutoSaveEnabled, setLastSaved]);
 
-  // Handle keyboard shortcuts
+  /**
+   * Handles keyboard shortcuts for text formatting
+   * @param e - Keyboard event from textarea
+   */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.ctrlKey || e.metaKey) {
       switch (e.key) {
@@ -51,6 +74,11 @@ export const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ scrollRef }) => 
     }
   };
 
+  /**
+   * Inserts text at current cursor position with optional wrapping
+   * @param before - Text to insert before selection
+   * @param after - Text to insert after selection (optional)
+   */
   const insertText = (before: string, after: string = '') => {
     if (!textareaRef.current) return;
 

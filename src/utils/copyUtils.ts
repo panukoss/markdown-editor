@@ -1,3 +1,14 @@
+/**
+ * Copies plain text to clipboard using modern Clipboard API with fallback
+ * @param text - The text to copy
+ * @returns Promise resolving to true if successful, false otherwise
+ * 
+ * @example
+ * ```typescript
+ * const success = await copyToClipboard('Hello, world!')
+ * if (success) console.log('Copied!')
+ * ```
+ */
 export const copyToClipboard = async (text: string): Promise<boolean> => {
   try {
     if (navigator.clipboard && window.isSecureContext) {
@@ -24,6 +35,17 @@ export const copyToClipboard = async (text: string): Promise<boolean> => {
   }
 };
 
+/**
+ * Copies HTML content as rich text to clipboard
+ * @param htmlContent - HTML string to copy as formatted text
+ * @returns Promise resolving to true if successful, false otherwise
+ * 
+ * @example
+ * ```typescript
+ * const html = '<p><strong>Bold</strong> text</p>'
+ * const success = await copyRichText(html)
+ * ```
+ */
 export const copyRichText = async (htmlContent: string): Promise<boolean> => {
   try {
     if (navigator.clipboard && window.isSecureContext && navigator.clipboard.write) {
@@ -64,6 +86,17 @@ export const copyRichText = async (htmlContent: string): Promise<boolean> => {
   }
 };
 
+/**
+ * Extracts rendered HTML with inline styles for rich text copying
+ * @param container - The HTML element containing rendered markdown
+ * @returns HTML string with inline styles applied
+ * 
+ * @example
+ * ```typescript
+ * const previewElement = document.querySelector('.markdown-preview')
+ * const html = getRenderedHTML(previewElement as HTMLElement)
+ * ```
+ */
 export const getRenderedHTML = (container: HTMLElement): string => {
   // Clone the container to avoid modifying the original
   const clone = container.cloneNode(true) as HTMLElement;
@@ -116,6 +149,18 @@ export const getRenderedHTML = (container: HTMLElement): string => {
   return clone.innerHTML;
 };
 
+/**
+ * Converts HTML to plain text while preserving structure (lists, tables, etc.)
+ * @param container - The HTML element to extract text from
+ * @returns Formatted plain text with preserved structure
+ * 
+ * @example
+ * ```typescript
+ * const element = document.querySelector('.markdown-preview')
+ * const plainText = getPlainTextWithFormatting(element as HTMLElement)
+ * // Lists will have bullets, tables will be aligned, etc.
+ * ```
+ */
 export const getPlainTextWithFormatting = (container: HTMLElement): string => {
   const processNode = (node: Node, listContext?: { type: 'ul' | 'ol', index: number, depth: number }): string => {
     if (node.nodeType === Node.TEXT_NODE) {

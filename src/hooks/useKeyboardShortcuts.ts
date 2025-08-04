@@ -2,19 +2,44 @@ import { useEffect } from 'react';
 import { useModalStore } from '../stores/modalStore';
 import { useThemeStore } from '../stores/themeStore';
 import { useEditorStore } from '../stores/editorStore';
-import { exportToDocx } from '../utils/exportDocx';
-import { exportToPDF } from '../utils/exportPDF';
-import { exportToMarkdown } from '../utils/exportMarkdown';
+import { exportToDocx } from '../lib/export/exportDocx';
+import { exportToPDF } from '../lib/export/exportPDF';
+import { exportToMarkdown } from '../lib/export/exportMarkdown';
 
+/**
+ * Keyboard shortcut handler definition
+ */
 interface ShortcutHandler {
+  /** The key to listen for */
   key: string;
+  /** Whether Ctrl/Cmd is required */
   ctrl?: boolean;
+  /** Whether Shift is required */
   shift?: boolean;
+  /** Whether Alt is required */
   alt?: boolean;
+  /** Function to execute when shortcut is triggered */
   handler: () => void;
+  /** Human-readable description of the shortcut */
   description: string;
 }
 
+/**
+ * Custom hook for managing keyboard shortcuts
+ * 
+ * Provides context-aware keyboard shortcuts that work globally or within specific contexts.
+ * Handles conflicts with browser shortcuts and input fields.
+ * 
+ * @returns Array of registered shortcuts
+ * 
+ * @example
+ * ```tsx
+ * function MyComponent() {
+ *   const shortcuts = useKeyboardShortcuts()
+ *   // shortcuts are automatically registered
+ * }
+ * ```
+ */
 export const useKeyboardShortcuts = () => {
   const { openHelp, openExport, openCopy, openCommandPalette } = useModalStore();
   const { toggleDarkMode } = useThemeStore();

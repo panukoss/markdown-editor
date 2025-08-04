@@ -1,4 +1,4 @@
-import { Document, Packer, Paragraph, TextRun, HeadingLevel, Table, TableRow, TableCell, WidthType, BorderStyle, AlignmentType } from 'docx';
+import { Document, Packer, Paragraph, TextRun, HeadingLevel, Table, TableRow, TableCell, WidthType, BorderStyle, AlignmentType, LevelFormat } from 'docx';
 import { saveAs } from 'file-saver';
 import { marked } from 'marked';
 
@@ -117,7 +117,7 @@ export const exportToDocx = async (content: string, fileName: string) => {
           levels: [
             {
               level: 0,
-              format: "decimal",
+              format: LevelFormat.DECIMAL,
               text: "%1.",
               alignment: AlignmentType.START,
               style: {

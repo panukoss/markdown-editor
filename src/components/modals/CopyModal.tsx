@@ -1,14 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Copy, FileText, Code, Check, AlertCircle } from 'lucide-react';
 import { useEditorStore } from '../../stores/editorStore';
-import { useModalStore } from '../../stores/modalStore';
 import { copyToClipboard, copyRichText, getRenderedHTML, getPlainTextWithFormatting } from '../../utils/copyUtils';
 
 export const CopyModal: React.FC = () => {
   const { content } = useEditorStore();
-  const { closeCopy } = useModalStore();
   const [copyStatus, setCopyStatus] = useState<{ [key: string]: 'success' | 'error' | null }>({});
-  const previewRef = useRef<HTMLElement | null>(null);
 
   const handleCopyMarkdown = async () => {
     const success = await copyToClipboard(content);

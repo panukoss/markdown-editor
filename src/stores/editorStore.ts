@@ -1,15 +1,37 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+/**
+ * Editor state management store
+ */
 interface EditorStore {
+  /** Current markdown content */
   content: string;
+  /** Timestamp of last save */
   lastSaved: Date | null;
+  /** Whether auto-save is enabled */
   isAutoSaveEnabled: boolean;
+  /** Update editor content */
   setContent: (content: string) => void;
+  /** Update last saved timestamp */
   setLastSaved: (date: Date) => void;
+  /** Toggle auto-save on/off */
   toggleAutoSave: () => void;
 }
 
+/**
+ * Zustand store for editor state with persistence
+ * 
+ * Automatically persists content and settings to localStorage.
+ * 
+ * @example
+ * ```tsx
+ * function MyComponent() {
+ *   const { content, setContent } = useEditorStore()
+ *   return <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+ * }
+ * ```
+ */
 export const useEditorStore = create<EditorStore>()(
   persist(
     (set) => ({

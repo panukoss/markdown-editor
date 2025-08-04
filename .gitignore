@@ -29,3 +29,26 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Testing
+coverage
+*.lcov
+.nyc_output
+
+# Temporary files
+*.tmp
+*.temp
+.cache
+
+# OS files
+Thumbs.db
+
+# Build files
+*.tsbuildinfo
+
+# Storybook
+storybook-static
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

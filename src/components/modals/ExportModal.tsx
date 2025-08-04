@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { FileText, FileDown, AlertCircle } from 'lucide-react';
+import { FileText, AlertCircle } from 'lucide-react';
 import { useEditorStore } from '../../stores/editorStore';
-import { exportToPDF } from '../../utils/exportPDF';
-import { exportToDocx } from '../../utils/exportDocx';
-import { exportToMarkdown } from '../../utils/exportMarkdown';
+import { exportToPDF } from '../../lib/export/exportPDF';
+import { exportToDocx } from '../../lib/export/exportDocx';
+import { exportToMarkdown } from '../../lib/export/exportMarkdown';
 
 type ExportFormat = 'pdf' | 'docx' | 'md';
 

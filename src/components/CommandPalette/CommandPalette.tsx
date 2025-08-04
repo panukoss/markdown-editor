@@ -3,9 +3,9 @@ import { Search, X } from 'lucide-react';
 import { useModalStore } from '../../stores/modalStore';
 import { useThemeStore } from '../../stores/themeStore';
 import { useEditorStore } from '../../stores/editorStore';
-import { exportToDocx } from '../../utils/exportDocx';
-import { exportToPDF } from '../../utils/exportPDF';
-import { exportToMarkdown } from '../../utils/exportMarkdown';
+import { exportToDocx } from '../../lib/export/exportDocx';
+import { exportToPDF } from '../../lib/export/exportPDF';
+import { exportToMarkdown } from '../../lib/export/exportMarkdown';
 
 interface Command {
   id: string;

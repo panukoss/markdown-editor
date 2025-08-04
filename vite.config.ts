@@ -12,5 +12,8 @@ export default defineConfig({
     host: true, // Listen on all addresses
     port: 5173,
     strictPort: false, // Use next available port if 5173 is taken
+  },
+  build: {
+    chunkSizeWarningLimit: 4000, // Increase limit to 4MB (we have large libraries like jsPDF, docx, etc.)
   }
 })
