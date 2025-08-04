@@ -19,7 +19,15 @@ export const useSyncScroll = ({ sourceRef, targetRef, enabled = true }: UseSyncS
     const target = targetRef.current;
 
     const sourceScrollRatio = source.scrollTop / (source.scrollHeight - source.clientHeight);
-    const targetScrollTop = sourceScrollRatio * (target.scrollHeight - target.clientHeight);
+    let targetScrollTop = sourceScrollRatio * (target.scrollHeight - target.clientHeight);
+
+    // Snap to top/bottom for better alignment
+    const SNAP_THRESHOLD = 0.02; // 2% threshold
+    if (sourceScrollRatio <= SNAP_THRESHOLD) {
+      targetScrollTop = 0;
+    } else if (sourceScrollRatio >= (1 - SNAP_THRESHOLD)) {
+      targetScrollTop = target.scrollHeight - target.clientHeight;
+    }
 
     isScrollingRef.current = true;
     

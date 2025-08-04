@@ -37,8 +37,8 @@ export const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({ scrollRef }) =
           Preview
         </h2>
       </div>
-      <div ref={scrollRef} className="flex-1 overflow-auto p-6 scroll-smooth">
-        <div className="prose prose-sm max-w-none markdown-body">
+      <div ref={scrollRef} className="flex-1 overflow-auto p-6 scroll-smooth" tabIndex={0}>
+        <div className="prose prose-sm max-w-none markdown-body markdown-preview-content">
           <MDEditor.Markdown
             source={content || '*Start typing to see preview...*'}
             remarkPlugins={[remarkGfm, remarkMath]}

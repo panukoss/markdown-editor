@@ -6,7 +6,10 @@ import { useModalStore } from '../../stores/modalStore';
 import { Modal } from '../Modal/Modal';
 import { HelpDocumentation } from '../Help/HelpDocumentation';
 import { ExportModal } from '../Export/ExportModal';
+import { CopyModal } from '../Copy/CopyModal';
+import { CommandPalette } from '../CommandPalette/CommandPalette';
 import { Sun, Moon } from 'lucide-react';
+import { useKeyboardShortcuts } from '../../hooks/useKeyboardShortcuts';
 
 interface AppLayoutProps {
   editor: React.ReactNode;
@@ -15,7 +18,10 @@ interface AppLayoutProps {
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ editor, preview }) => {
   const { isDarkMode, toggleDarkMode } = useThemeStore();
-  const { isHelpOpen, closeHelp, isExportOpen, closeExport } = useModalStore();
+  const { isHelpOpen, closeHelp, isExportOpen, closeExport, isCopyOpen, closeCopy, isCommandPaletteOpen, closeCommandPalette } = useModalStore();
+  
+  // Initialize keyboard shortcuts
+  useKeyboardShortcuts();
 
   useEffect(() => {
     if (isDarkMode) {
@@ -57,6 +63,24 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ editor, preview }) => {
         size="md"
       >
         <ExportModal />
+      </Modal>
+      
+      <Modal
+        isOpen={isCopyOpen}
+        onClose={closeCopy}
+        title="Copy Content"
+        size="md"
+      >
+        <CopyModal />
+      </Modal>
+      
+      <Modal
+        isOpen={isCommandPaletteOpen}
+        onClose={closeCommandPalette}
+        title="Command Palette"
+        size="lg"
+      >
+        <CommandPalette />
       </Modal>
     </div>
   );

@@ -5,7 +5,7 @@ import { useModalStore } from '../../stores/modalStore';
 
 export const Header: React.FC = () => {
   const { isDarkMode, toggleDarkMode } = useThemeStore();
-  const { openHelp, openExport } = useModalStore();
+  const { openHelp, openExport, openCopy } = useModalStore();
 
   return (
     <header className="border-b bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
@@ -35,6 +35,7 @@ export const Header: React.FC = () => {
           <button
             className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-300"
             title="Copy"
+            onClick={openCopy}
           >
             <Copy size={20} />
           </button>

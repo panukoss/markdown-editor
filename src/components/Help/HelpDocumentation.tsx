@@ -135,25 +135,62 @@ $$`}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Keyboard Shortcuts</h3>
           
-          <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-gray-600 dark:text-gray-400">Bold</div>
-              <div className="text-gray-900 dark:text-white font-mono text-sm">Ctrl/Cmd + B</div>
-              
-              <div className="text-gray-600 dark:text-gray-400">Italic</div>
-              <div className="text-gray-900 dark:text-white font-mono text-sm">Ctrl/Cmd + I</div>
-              
-              <div className="text-gray-600 dark:text-gray-400">Link</div>
-              <div className="text-gray-900 dark:text-white font-mono text-sm">Ctrl/Cmd + K</div>
-              
-              <div className="text-gray-600 dark:text-gray-400">Save</div>
-              <div className="text-gray-900 dark:text-white font-mono text-sm">Ctrl/Cmd + S</div>
-              
-              <div className="text-gray-600 dark:text-gray-400">Undo</div>
-              <div className="text-gray-900 dark:text-white font-mono text-sm">Ctrl/Cmd + Z</div>
-              
-              <div className="text-gray-600 dark:text-gray-400">Redo</div>
-              <div className="text-gray-900 dark:text-white font-mono text-sm">Ctrl/Cmd + Shift + Z</div>
+          <div className="space-y-4">
+            <div>
+              <h4 className="font-medium text-gray-900 dark:text-white mb-2">Editor Shortcuts</h4>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <div className="text-gray-600 dark:text-gray-400">Bold</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + B</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Italic</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + I</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Link</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + L</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Save</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + S</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Undo</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + Z</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Redo</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + Shift + Z</div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-medium text-gray-900 dark:text-white mb-2">Application Shortcuts</h4>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <div className="text-gray-600 dark:text-gray-400">Export Options</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + E</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Copy Options</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + Shift + Y</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Toggle Dark Mode</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + Shift + D</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Show Help</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + /</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Command Palette</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + K</div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-medium text-gray-900 dark:text-white mb-2">Quick Export</h4>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <div className="text-gray-600 dark:text-gray-400">Export to PDF</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + Shift + P</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Export to Word</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + Shift + Alt + D</div>
+                
+                <div className="text-gray-600 dark:text-gray-400">Export Markdown</div>
+                <div className="text-gray-900 dark:text-white font-mono">Ctrl/Cmd + Shift + M</div>
+              </div>
             </div>
           </div>
         </div>

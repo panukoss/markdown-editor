@@ -43,7 +43,7 @@ export const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ scrollRef }) => 
           e.preventDefault();
           insertText('*', '*');
           break;
-        case 'k':
+        case 'l':
           e.preventDefault();
           insertText('[', '](url)');
           break;
@@ -90,7 +90,7 @@ export const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ scrollRef }) => 
           value={content}
           onChange={(e) => setContent(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="w-full h-full p-4 resize-none font-mono text-sm focus:outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+          className="editor-textarea w-full h-full p-4 resize-none font-mono text-sm focus:outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
           placeholder="Start typing your markdown here..."
           spellCheck={false}
         />

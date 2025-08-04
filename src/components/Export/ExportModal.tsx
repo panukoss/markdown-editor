@@ -67,9 +67,20 @@ export const ExportModal: React.FC = () => {
 
   return (
     <div className="space-y-4">
-      <p className="text-gray-600 dark:text-gray-400">
-        Choose your preferred export format:
-      </p>
+      {!content && (
+        <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+          <div className="flex items-center gap-2 text-yellow-800 dark:text-yellow-200">
+            <AlertCircle className="w-5 h-5" />
+            <span>No content to export. Please add some text to the editor.</span>
+          </div>
+        </div>
+      )}
+      
+      {content && (
+        <p className="text-gray-600 dark:text-gray-400">
+          Choose your preferred export format:
+        </p>
+      )}
 
       {exportError && (
         <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-start gap-2">
@@ -109,13 +120,6 @@ export const ExportModal: React.FC = () => {
           </button>
         ))}
       </div>
-
-      {!content && (
-        <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-4">
-          <FileDown className="w-4 h-4 inline mr-1" />
-          Add some content to your document before exporting
-        </p>
-      )}
     </div>
   );
 };
