@@ -69,7 +69,7 @@ A modern, feature-rich markdown editor built with React, TypeScript, and Vite. T
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/markdown-editor.git
+git clone https://github.com/jmagly/markdown-editor.git
 cd markdown-editor
 
 # Install dependencies
