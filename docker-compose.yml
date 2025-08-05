@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  markdown-editor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: markdown-editor:${IMAGE_TAG:-latest}
+    container_name: ${CONTAINER_NAME:-markdown-editor}
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+      - "${HTTPS_PORT:-443}:443"
+    environment:
+      - PORT=${PORT:-3000}
+      - HTTPS_PORT=${HTTPS_PORT:-443}
+      - NODE_ENV=${NODE_ENV:-production}
+      - USE_SSL=${USE_SSL:-false}
+      - DOMAIN=${DOMAIN}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+      - SSL_KEY_PATH=${SSL_KEY_PATH}
+      - SSL_CERT_PATH=${SSL_CERT_PATH}
+    volumes:
+      # Let's Encrypt certificates
+      - ./greenlock.d:/app/greenlock.d
+      # Manual SSL certificates (if used)
+      - ./ssl:/app/ssl:ro
+    networks:
+      - markdown-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:${PORT:-3000}/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  markdown-network:
+    driver: bridge
+
+volumes:
+  greenlock:
+    driver: local

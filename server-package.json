@@ -1,0 +1,24 @@
+{
+  "name": "markdown-editor-server",
+  "version": "1.0.0",
+  "description": "Production server for Markdown Editor",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "NODE_ENV=development nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "compression": "^1.7.4",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.4.5",
+    "greenlock-express": "^4.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

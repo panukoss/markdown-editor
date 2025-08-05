@@ -52,3 +52,16 @@ storybook-static
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# SSL certificates
+ssl/
+*.pem
+*.crt
+*.key
+
+# Let's Encrypt
+greenlock.d/
+
+# Server logs
+access.log
+error.log
