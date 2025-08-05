@@ -158,8 +158,30 @@ docker run -p 80:80 markdown-editor
 
 ## Environment Considerations
 
-### Base URL
-The app is configured to work from any base URL. No changes needed for subdirectory deployments.
+### Base URL / Sub-site Deployment
+
+To deploy the application in a subdirectory (e.g., `https://example.com/markdown-editor/`):
+
+1. Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Edit `.env` to set your base URL:
+   ```bash
+   # For root deployment (default)
+   VITE_BASE_URL=/
+
+   # For sub-site deployment
+   VITE_BASE_URL=/markdown-editor/
+   ```
+
+3. Build the application:
+   ```bash
+   npm run build
+   ```
+
+The base URL is configured at build time and cannot be changed after deployment. Make sure to set the correct `VITE_BASE_URL` before building.
 
 ### CORS
 The app runs entirely in the browser. No CORS configuration needed.
